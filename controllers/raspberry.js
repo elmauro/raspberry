@@ -16,9 +16,3 @@ client.on('message', function(topic, message) {
   }, 5000);
 
 });
-
-exports.turnOnOffLed = function(req, res){
-
-	console.log('Client started...');
-	res.status(200).json({'message': 'Client 1 is alive.. Turning ligth!'});
-}
