@@ -16,11 +16,10 @@ client.on('message', function(topic, message) {
       led.unexport();    // Unexport GPIO and free resources
   }, 5000);
 
-  res.status(200).json({'message': message.toString()});
-
 });
 
 exports.turnOnOffLed = function(req, res){
 
 	console.log('Client started...');
+	res.status(200).json({'message': 'Client 1 is alive.. Turning ligth!'});
 }
