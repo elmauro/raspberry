@@ -3,16 +3,21 @@ var Gpio = require('onoff').Gpio,
 
 var mqtt = require('mqtt')
 var client  = mqtt.connect('mqtt://10.3.8.212:1883');
+var _message;
 
 client.subscribe('LED');
 
 client.on('message', function(topic, message) {
-  console.log(message.toString());
+  _message =  message.toString();
 
-  led.writeSync(1);
+  console.log(_message);
 
-  setTimeout(function() {
-      led.writeSync(0);  // Turn LED off.
-  }, 5000);
+  switch(_message){
+  	case 'turnOn': led.writeSync(1);
+  					break;
+
+  	case 'turnOff': led.writeSync(0);
+  					break; 
+  }
 
 });
