@@ -13,10 +13,10 @@ client.on('message', function(topic, message) {
   console.log(_message);
 
   switch(_message){
-  	case 'turnOn': led.writeSync(1);
+  	case 'turnOnLed': led.writeSync(1);
   					break;
 
-  	case 'turnOff': led.writeSync(0);
+  	case 'turnOffLed': led.writeSync(0);
   					break; 
   }
 
