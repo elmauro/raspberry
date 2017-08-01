@@ -10,8 +10,6 @@ client.subscribe('LED');
 client.on('message', function(topic, message) {
   _message =  message.toString();
 
-  console.log(_message);
-
   switch(_message){
   	case 'turnOnLed': led.writeSync(1);
   					break;
