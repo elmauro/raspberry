@@ -1,4 +1,5 @@
 var Gpio = require('onoff').Gpio,
+	button = new Gpio(19, 'in', 'both');
     led = new Gpio(21, 'out');
 
 var mqtt = require('mqtt')
@@ -18,4 +19,15 @@ client.on('message', function(topic, message) {
   					break; 
   }
 
+});
+
+button.watch(function(err, state) {
+    if(state == 1) {
+        // turn LED on
+        led.writeSync(1);
+        client.publish('LED', 'turnOff');
+    } else {
+        // turn LED off
+        led.writeSync(0);
+    }
 });
