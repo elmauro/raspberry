@@ -5,7 +5,7 @@ COPY . /src
 WORKDIR /src
 EXPOSE  8080
 
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
 
 #FROM centos:centos6
 #RUN curl -sL https://rpm.nodesource.com/setup_6.x | bash -
