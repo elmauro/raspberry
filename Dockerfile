@@ -1,4 +1,4 @@
-FROM hypriot/rpi-node:latest
+FROM resin/raspberry-pi-alpine-node
 COPY package.json /src/package.json
 RUN cd /src; npm install --production
 COPY . /src
