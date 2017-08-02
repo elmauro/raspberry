@@ -1,5 +1,5 @@
 var Gpio = require('onoff').Gpio,
-	button = new Gpio(19, 'in', 'both');
+	button = new Gpio(19, 'in', 'both'),
     led = new Gpio(21, 'out');
 
 var mqtt = require('mqtt')
