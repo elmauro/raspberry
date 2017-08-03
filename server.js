@@ -21,13 +21,8 @@ client.on('message', function(topic, message) {
 
 });
 
-button.watch(function(err, state) {
-    if(state == 1) {
-        // turn LED on
-        //led.writeSync(1);
-        client.publish('LED', 'turnOn');
-    } else {
-        // turn LED off
-        led.writeSync(0);
-    }
+button.watch(function(err, value) {
+  if(value == 1) {
+    client.publish('LED', 'turnOn');
+  }    
 });
